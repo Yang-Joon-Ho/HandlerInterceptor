@@ -6,9 +6,13 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @Configuration
 public class WebConfig implements WebMvcConfigurer {
+
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(new Interceptor())
-            .addPathPatterns("/hello/**");
+        registry.addInterceptor(new InterceptorA());
+//                .addPathPatterns("/hello/**");
+        registry.addInterceptor(new InterceptorB());
+//                .addPathPatterns("/goodbye/**");
+        registry.addInterceptor(new InterceptorC());
     }
 }
